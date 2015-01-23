@@ -10,12 +10,20 @@ function main() {
         teamNames.push(team.name);
     }
 
-    var result = robin(teams.length, teamNames);
+    teamNames = teamNames.sort(function (a, b) {
+        var nameA = a.toLowerCase(), nameB = b.toLowerCase()
+        if (nameA < nameB) //sort string ascending
+            return -1;
+        if (nameA > nameB)
+            return 1;
+        return 0; //default return value (no sorting)
+    });
 
+    var result = robin(teams.length, teamNames);
     var fixturesJson = [];
     var week = 1;
 
-    for (var j = 0; j < result[0].length; j += 2) {
+    for (var j = 0; j < result.length; j += 2) {
         var round = result[j].concat(result[j + 1]);
         var roundJson = {
             week: week,
@@ -24,24 +32,27 @@ function main() {
 
         for (var x = 0; x < round.length; x++) {
             var match = round[x];
-            var matchJson = {
-                home: {
-                    team: match[0],
-                    score: 0
-                },
-                away: {
-                    team: match[1],
-                    score: 0
-                }
-            };
-            roundJson.matches.push(matchJson);
+            if (match) {
+
+                var matchJson = {
+                    home: {
+                        team: match[0],
+                        score: null
+                    },
+                    away: {
+                        team: match[1],
+                        score: null
+                    }
+                };
+                roundJson.matches.push(matchJson);
+            }
         }
         fixturesJson.push(roundJson);
         week++;
     }
     //console.log(JSON.stringify(fixturesJson, null, 2));
 
-    fs.writeFile('fixtures2.json', JSON.stringify(fixturesJson, null, 2), function (err) {
+    fs.writeFile(__dirname + '/../data/fixtures2.json', JSON.stringify(fixturesJson, null, 2), function (err) {
         if (err) {
             console.error(err);
         } else {

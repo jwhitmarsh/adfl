@@ -1,5 +1,43 @@
+body {
+    font-family: "ITCAvantGardeW04-Medium 1122896", Helvetica, sans-serif;
+}
+
+.navbar-inverse {
+    background: #444;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-weight: normal;
+}
+
 .fixture {
-  float: left;
-  margin-right: 30px;
-  text-align: center;
+    float: left;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.fixture h6 {
+    display: inline-block;
+    padding: 10px;
+    background: rgb(238, 238, 238);
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+.fixture h6.win {
+    background-color: #69c8c7;
+}
+
+.fixture h6 .home-score {
+    float: right;
+}
+
+.fixture h6 .away-score {
+    float: left;
+}
+
+.fixture span {
+    margin: 0 2px;
 }

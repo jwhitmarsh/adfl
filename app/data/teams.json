@@ -1,79 +1,49 @@
 [
     {
-        "id": 1,
-        "name": "Just A Formality",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "Just A Formality"
     },
     {
-        "id": 2,
-        "name": "Old Abacus",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "Old Abacus"
     },
     {
-        "id": 3,
-        "name": "Value For Money",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "Value For Money"
     },
     {
-        "id": 4,
-        "name": "The Streakers ",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "The Streakers"
     },
     {
-        "id": 5,
-        "name": "The Anthony’s",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "The Underdogs"
     },
     {
-        "id": 6,
-        "name": "Bicester Broncos",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "Spin Doctors"
     },
     {
-        "id": 7,
-        "name": "Realale Madrid",
-        "played": 0,
-        "won": 0,
-        "lost": 0,
-        "drawn": 0,
-        "points": 0,
-        "gs": 0,
-        "ga": 0
+        "name": "Redneck Penalty Hobgoblins"
+    },
+    {
+        "name": "7up"
+    },
+    {
+        "name": "The Anthony’s"
+    },
+    {
+        "name": "Bicester Broncos"
+    },
+    {
+        "name": "Realale Madrid"
+    },
+    {
+        "name": "BYE"
     }
 ]
+
+
+
+
+
+
+
+
+
+
+
