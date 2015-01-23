@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "name": "Just A Formality",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    },
+    {
+        "id": 2,
+        "name": "Old Abacus",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    },
+    {
+        "id": 3,
+        "name": "Value For Money",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    },
+    {
+        "id": 4,
+        "name": "The Streakers ",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    },
+    {
+        "id": 5,
+        "name": "The Anthony’s",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    },
+    {
+        "id": 6,
+        "name": "Bicester Broncos",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    },
+    {
+        "id": 7,
+        "name": "Realale Madrid",
+        "played": 0,
+        "won": 0,
+        "lost": 0,
+        "drawn": 0,
+        "points": 0,
+        "gs": 0,
+        "ga": 0
+    }
+]
