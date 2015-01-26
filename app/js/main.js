@@ -74,28 +74,39 @@ function buildLeagueTable(teams, fixtures) {
             return n;
         }
 
-        return y.aggregate - x.aggregate;
+        var m = y.aggregate - x.aggregate;
+        if (m != 0) {
+            return m;
+        }
+
+        var nameA = x.name.toLowerCase(), nameB = y.name.toLowerCase()
+        if (nameA < nameB)
+            return -1;
+        if (nameA > nameB)
+            return 1;
+        return 0;
     });
 
-    for (var x = 0; x < teams.length; x++) {
-        var t = teams[x],
+    var filteredTeams = teams.filter(function (x) {
+        return x.name !== 'BYE';
+    });
+
+    for (var x = 0; x < filteredTeams.length; x++) {
+        var t = filteredTeams[x],
             $tr = $('<tr>');
+        $tr
+            .append($('<td>').text(x + 1))
+            .append($('<td>').text(t.name))
+            .append($('<td>').text(t.played))
+            .append($('<td>').text(t.won))
+            .append($('<td>').text(t.lost))
+            .append($('<td>').text(t.drawn))
+            .append($('<td>').text(t.points))
+            .append($('<td>').text(t.totalScored))
+            .append($('<td>').text(t.totalConceeded))
+            .append($('<td>').text(t.aggregate));
 
-        if (t.name !== 'BYE') {
-            $tr
-                .append($('<td>').text(x + 1))
-                .append($('<td>').text(t.name))
-                .append($('<td>').text(t.played))
-                .append($('<td>').text(t.won))
-                .append($('<td>').text(t.lost))
-                .append($('<td>').text(t.drawn))
-                .append($('<td>').text(t.points))
-                .append($('<td>').text(t.totalScored))
-                .append($('<td>').text(t.totalConceeded))
-                .append($('<td>').text(t.aggregate));
-
-            $body.append($tr);
-        }
+        $body.append($tr);
     }
 }
 
