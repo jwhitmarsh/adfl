@@ -24,10 +24,22 @@ body {
     border-radius: 5px;
     text-align: center;
     width: 200px;
+    color: #a2a2a2;
 }
 
 .fixture h6.win {
     background-color: #69c8c7;
+    color: white;
+}
+
+.fixture h6.lose {
+    background-color: #c8696a;
+    color: white;
+}
+
+.fixture h6.draw {
+    background-color: #7c7c7c;
+    color: white;
 }
 
 .fixture h6 .home-score {

@@ -45,21 +45,21 @@
             {
                 "home": {
                     "team": "Old Abacus",
-                    "score": null
+                    "score": 9
                 },
                 "away": {
                     "team": "Spin Doctors",
-                    "score": null
+                    "score": 6
                 }
             },
             {
                 "home": {
                     "team": "Realale Madrid",
-                    "score": null
+                    "score": 3
                 },
                 "away": {
                     "team": "Redneck Penalty Hobgoblins",
-                    "score": null
+                    "score": 7
                 }
             },
             {
@@ -105,11 +105,11 @@
             {
                 "home": {
                     "team": "Just A Formality",
-                    "score": null
+                    "score": 10
                 },
                 "away": {
                     "team": "Redneck Penalty Hobgoblins",
-                    "score": null
+                    "score": 2
                 }
             },
             {

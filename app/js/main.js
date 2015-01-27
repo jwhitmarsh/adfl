@@ -1,4 +1,5 @@
 $(function () {
+    $.ajaxSetup({cache: false});
     getData();
 });
 
@@ -155,22 +156,31 @@ function makeFixtures(round, $fixtureContainerBody) {
         var match = round.matches[f];
 
         var $fixture = $('<div class="fixture">');
-
         var $home = $('<h6>').text(match.home.team);
+        var $away = $('<h6>').text(match.away.team);
+
+        var resultClass = 'lose';
         if (match.home.score !== null) {
             $home.append($('<span class="home-score">').text(match.home.score));
             if (match.home.score > match.away.score) {
-                $home.addClass('win');
+                resultClass = 'win';
+            } else if (match.home.score === match.away.score) {
+                resultClass = 'draw';
             }
+            $home.addClass(resultClass);
         }
 
-        var $away = $('<h6>').text(match.away.team);
+        resultClass = 'lose';
         if (match.away.score !== null) {
             $away.append($('<span class="away-score">').text(match.away.score));
             if (match.away.score > match.home.score) {
-                $away.addClass('win');
+                resultClass = 'win';
+            } else if (match.home.score === match.away.score) {
+                resultClass = 'draw';
             }
+            $away.addClass(resultClass);
         }
+
 
         $fixture.append($home);
         $fixture.append($('<span>').text('v'));
