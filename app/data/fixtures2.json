@@ -255,11 +255,11 @@
             {
                 "home": {
                     "team": "7up",
-                    "score": null
+                    "score": 4
                 },
                 "away": {
                     "team": "Spin Doctors",
-                    "score": null
+                    "score": 10
                 }
             },
             {
@@ -380,11 +380,11 @@
             {
                 "home": {
                     "team": "7up",
-                    "score": null
+                    "score": 10
                 },
                 "away": {
                     "team": "Realale Madrid",
-                    "score": null
+                    "score": 3
                 }
             },
             {
