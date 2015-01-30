@@ -70,14 +70,48 @@ function buildLeagueTable(teams, fixtures) {
     }
 
     teams = teams.sort(function (x, y) {
-        var n = y.points - x.points;
-        if (n != 0) {
-            return n;
+        var points = y.points - x.points;
+        if (points != 0) {
+            if (y.played == 0) {
+                return -1;
+            }
+            if (x.played == 0) {
+                return 1;
+            }
+            return points;
         }
 
-        var m = y.aggregate - x.aggregate;
-        if (m != 0) {
-            return m;
+        var agg = y.aggregate - x.aggregate;
+        if (agg != 0) {
+            if (y.played == 0) {
+                return -1;
+            }
+            if (x.played == 0) {
+                return 1;
+            }
+            return agg;
+        }
+
+        var score = y.scored - x.scored;
+        if (score != 0) {
+            if (y.played == 0) {
+                return -1;
+            }
+            if (x.played == 0) {
+                return 1;
+            }
+            return score;
+        }
+
+        var conceeded = y.conceeded - x.conceeded;
+        if (conceeded != 0) {
+            if (y.played == 0) {
+                return -1;
+            }
+            if (x.played == 0) {
+                return 1;
+            }
+            return conceeded;
         }
 
         var nameA = x.name.toLowerCase(), nameB = y.name.toLowerCase()
@@ -181,6 +215,10 @@ function makeFixtures(round, $fixtureContainerBody) {
             $away.addClass(resultClass);
         }
 
+        if (match.home.team === 'BYE' || match.away.team === 'BYE') {
+            $home.addClass('bye');
+            $away.addClass('bye');
+        }
 
         $fixture.append($home);
         $fixture.append($('<span>').text('v'));
