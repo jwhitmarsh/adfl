@@ -16,6 +16,12 @@ function buildLeagueTable(teams, fixtures) {
     var $leagueTable = $('#leagueTable'),
         $body = $leagueTable.find('tbody');
 
+    // set up team list
+    $('#TeamsContainer').find('tr').each(function () {
+        var $t = $(this);
+        $t.attr('data-team', $t.children('td:first').text());
+    });
+
     for (var i = 0; i < teams.length; i++) {
         var team = teams[i];
 
@@ -31,6 +37,8 @@ function buildLeagueTable(teams, fixtures) {
         team.totalScored = 0;
         team.totalConceeded = 0;
         team.aggregate = 0;
+        team.form = [];
+        team.nextOpponent = null;
 
         for (var j = 0; j < teamFixtures.length; j++) {
             var round = teamFixtures[j];
@@ -54,16 +62,37 @@ function buildLeagueTable(teams, fixtures) {
                     if (team.scored > team.conceeded) {
                         team.won++;
                         team.points += 3;
+                        team.form.push('W');
                     }
                     else if (team.scored === team.conceeded) {
                         team.drawn++;
                         team.points += 1;
+                        team.form.push("D");
                     }
                     else {
                         team.lost++;
+                        team.form.push("L");
+                    }
+                } else {
+                    if (team.name !== 'BYE' && !team.nextOpponent && fixture.home.team === team.name && fixture.away.team !== 'BYE') {
+                        team.nextOpponent = fixture.away.team;
+                    }
+                    if (team.name !== 'BYE' && !team.nextOpponent && fixture.away.team === team.name && fixture.home.team !== 'BYE') {
+                        team.nextOpponent = fixture.home.team;
                     }
                 }
             }
+        }
+
+        console.log('team %s | form %s | next %s ', team.name, team.form.toString(), team.nextOpponent);
+
+        if (team.name !== 'BYE') {
+            var $listTd = $('[data-team="' + team.name + '"]');
+
+            console.log($listTd);
+
+            $listTd.children()[3].innerHTML = team.form.toString();
+            $listTd.children()[4].innerHTML = team.nextOpponent;
         }
 
         team.aggregate = team.totalScored - team.totalConceeded;
