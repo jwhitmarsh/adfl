@@ -1,0 +1,37 @@
+[
+    [
+        ["Old Abacus", "Realale Madrid"],
+        ["Value For Money", "Bicester Broncos"],
+        ["The Streakers ", "The Anthony’s"]
+    ],
+    [
+        ["Just A Formality", "Realale Madrid"],
+        ["Old Abacus", "The Anthony’s"],
+        ["Value For Money", "The Streakers "]
+    ],
+    [
+        ["Just A Formality", "Bicester Broncos"],
+        ["Realale Madrid", "The Anthony’s"],
+        ["Old Abacus", "Value For Money"]
+    ],
+    [
+        ["Just A Formality", "The Anthony’s"],
+        ["Bicester Broncos", "The Streakers "],
+        ["Realale Madrid", "Value For Money"]
+    ],
+    [
+        ["Just A Formality", "The Streakers "],
+        ["The Anthony’s", "Value For Money"],
+        ["Bicester Broncos", "Old Abacus"]
+    ],
+    [
+        ["Just A Formality", "Value For Money"],
+        ["The Streakers ", "Old Abacus"],
+        ["Bicester Broncos", "Realale Madrid"]
+    ],
+    [
+        ["Just A Formality", "Old Abacus"],
+        ["The Streakers ", "Realale Madrid"],
+        ["The Anthony’s", "Bicester Broncos"]
+    ]
+]

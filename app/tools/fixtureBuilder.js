@@ -11,7 +11,7 @@ function main() {
     }
 
     teamNames = teamNames.sort(function (a, b) {
-        var nameA = a.toLowerCase(), nameB = b.toLowerCase()
+        var nameA = a.toLowerCase(), nameB = b.toLowerCase();
         if (nameA < nameB) //sort string ascending
             return -1;
         if (nameA > nameB)
@@ -52,7 +52,7 @@ function main() {
     }
     //console.log(JSON.stringify(fixturesJson, null, 2));
 
-    fs.writeFile(__dirname + '/../data/fixtures2.json', JSON.stringify(fixturesJson, null, 2), function (err) {
+    fs.writeFile(__dirname + '/../data/fixtures.json', JSON.stringify(fixturesJson, null, 2), function (err) {
         if (err) {
             console.error(err);
         } else {

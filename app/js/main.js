@@ -3,9 +3,29 @@ $(function () {
     getData();
 });
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 function getData() {
-    $.getJSON('data/teams.json', function (teams) {
-        $.getJSON('data/fixtures2.json', function (fixtures) {
+    var season = getParameterByName('season');
+    var teamsJson = 'data/teams.json';
+    var fixturesJson = 'data/fixtures.json';
+
+    switch (season) {
+        case '1' :
+            teamsJson = 'data/archive/season1/teams.json';
+            fixturesJson = 'data/archive/season1/fixtures.json';
+            break;
+        default:
+            break;
+    }
+
+    $.getJSON(teamsJson, function (teams) {
+        $.getJSON(fixturesJson, function (fixtures) {
             buildLeagueTable(teams, fixtures);
             buildFixturesList(fixtures);
         });
@@ -16,14 +36,16 @@ function buildLeagueTable(teams, fixtures) {
     var $leagueTable = $('#leagueTable'),
         $body = $leagueTable.find('tbody');
 
-    // set up team list
-    $('#TeamsContainer').find('tr').each(function () {
-        var $t = $(this);
-        $t.attr('data-team', $t.children('td:first').text());
-    });
-
     for (var i = 0; i < teams.length; i++) {
         var team = teams[i];
+
+        if (team.name !== 'BYE') {
+            var $tr = $('<tr>');
+            $tr.append($('<td>').text(team.name));
+            $tr.append($('<td>').text(team.p1));
+            $tr.append($('<td>').text(team.p2));
+        }
+
 
         var teamFixtures = getTeamFixtures(team, fixtures);
 
@@ -84,16 +106,14 @@ function buildLeagueTable(teams, fixtures) {
             }
         }
 
-        console.log('team %s | form %s | next %s ', team.name, team.form.toString(), team.nextOpponent);
-
         if (team.name !== 'BYE') {
-            var $listTd = $('[data-team="' + team.name + '"]');
-
-            console.log($listTd);
-
-            $listTd.children()[3].innerHTML = team.form.toString();
-            $listTd.children()[4].innerHTML = team.nextOpponent;
+            if (team.form) {
+                $tr.append($('<td>').text(team.form.toString()));
+            }
+            $tr.append($('<td>').text(team.nextOpponent));
         }
+
+        $('#TeamsContainer').find('tbody').append($tr);
 
         team.aggregate = team.totalScored - team.totalConceeded;
     }
@@ -258,7 +278,7 @@ function makeFixtures(round, $fixtureContainerBody) {
 }
 
 function bindNavEvents() {
-    $(".nav-sidebar li a").click(function (e) {
+    $("#NavSide li a").click(function (e) {
         e.preventDefault();
 
         var scrollToElm = $(this).attr('href');

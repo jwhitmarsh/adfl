@@ -1,49 +1,80 @@
 [
-    {
-        "name": "Just A Formality"
-    },
-    {
-        "name": "Old Abacus"
-    },
-    {
-        "name": "Value For Money"
-    },
-    {
-        "name": "The Streakers"
-    },
-    {
-        "name": "The Underdogs"
-    },
-    {
-        "name": "Spin Doctors"
-    },
-    {
-        "name": "Redneck Penalty Hobgoblins"
-    },
-    {
-        "name": "7up"
-    },
-    {
-        "name": "The Anthony’s"
-    },
-    {
-        "name": "Bicester Broncos"
-    },
-    {
-        "name": "Realale Madrid"
-    },
-    {
-        "name": "BYE"
-    }
+  {
+    "name": "Just A Formality",
+    "p1": "Mark Jones",
+    "p2": "James Whitmarsh"
+  },
+  {
+    "name": "Old Abacus",
+    "p1": "Ian Shield",
+    "p2": "Dino Cappiello"
+  },
+  {
+    "name": "Value For Money",
+    "p1": "Robin Tregaskis",
+    "p2": "Richard White"
+  },
+  {
+    "name": "The Underdogs",
+    "p1": "Nicki Hoskins",
+    "p2": "Sophie Pryor"
+  },
+  {
+    "name": "The Anthony’s",
+    "p1": "Anthony Bentley",
+    "p2": "Anthony Ecclestone"
+  },
+  {
+    "name": "The Streakers ",
+    "p1": "Andrew Buckland",
+    "p2": "Carrie Fidler"
+  },
+  {
+    "name": "Los Pollos Hermanos",
+    "p1": "Neil Webb",
+    "p2": "Rachael Baker-Searle"
+  },
+  {
+    "name": "Realale Madrid",
+    "p1": "Paul Walshaw",
+    "p2": "Roderick Walker"
+  },
+  {
+    "name": "7up",
+    "p1": "Christoph Lohan",
+    "p2": "Giorgia Magnatti"
+  },
+  {
+    "name": "Bicester Broncos",
+    "p1": "Pam Poppe",
+    "p2": "Gemma Tysoe"
+  },
+  {
+    "name": "The A Team",
+    "p1": "Andre",
+    "p2": "Adrian"
+  },
+  {
+    "name": "JD",
+    "p1": "James Woolnough",
+    "p2": "Dan Squirrell"
+  },
+  {
+    "name": "Project Assistants Utd",
+    "p1": "Megan Franklin",
+    "p2": "Preeti Chandel"
+  },
+  {
+    "name": "Headers And Footers",
+    "p1": "Joe Harvey",
+    "p2": "Jade Cowling"
+  },
+  {
+    "name": "FT",
+    "p1": "Fionn Woodcock",
+    "p2": "Terence Neale"
+  },
+  {
+    "name": "BYE"
+  }
 ]
-
-
-
-
-
-
-
-
-
-
-
