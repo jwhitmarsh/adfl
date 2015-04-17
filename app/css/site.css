@@ -58,3 +58,8 @@ body {
 .fixture span {
     margin: 0 2px;
 }
+
+i.fa.fa-star{
+    font-size: 9px;
+    color: #69c8c7;
+}

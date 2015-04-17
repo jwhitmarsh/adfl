@@ -40,8 +40,13 @@ function buildLeagueTable(teams, fixtures) {
         var team = teams[i];
 
         if (team.name !== 'BYE') {
+            var teamName = team.name;
+            if (team.seeded) {
+                teamName += '<i class="fa fa-star"></i>';
+            }
+
             var $tr = $('<tr>');
-            $tr.append($('<td>').text(team.name));
+            $tr.append($('<td>').html(teamName));
             $tr.append($('<td>').text(team.p1));
             $tr.append($('<td>').text(team.p2));
         }

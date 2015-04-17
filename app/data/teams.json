@@ -2,12 +2,14 @@
   {
     "name": "Just A Formality",
     "p1": "Mark Jones",
-    "p2": "James Whitmarsh"
+    "p2": "James Whitmarsh",
+    "seeded": true
   },
   {
     "name": "Old Abacus",
     "p1": "Ian Shield",
-    "p2": "Dino Cappiello"
+    "p2": "Dino Cappiello",
+    "seeded": true
   },
   {
     "name": "Value For Money",
@@ -22,7 +24,8 @@
   {
     "name": "The Anthony’s",
     "p1": "Anthony Bentley",
-    "p2": "Anthony Ecclestone"
+    "p2": "Anthony Ecclestone",
+    "seeded": true
   },
   {
     "name": "The Streakers ",
@@ -35,14 +38,16 @@
     "p2": "Rachael Baker-Searle"
   },
   {
-    "name": "Realale Madrid",
+    "name": "Head Over Heels",
     "p1": "Paul Walshaw",
-    "p2": "Roderick Walker"
+    "p2": "Roderick Walker",
+    "seeded": true
   },
   {
-    "name": "7up",
+    "name": "Beat-Ya",
     "p1": "Christoph Lohan",
-    "p2": "Giorgia Magnatti"
+    "p2": "Giorgia Magnatti",
+    "seeded": true
   },
   {
     "name": "Bicester Broncos",
@@ -51,8 +56,8 @@
   },
   {
     "name": "The A Team",
-    "p1": "Andre",
-    "p2": "Adrian"
+    "p1": "Andre Niezgoda",
+    "p2": "Adrian Bright"
   },
   {
     "name": "JD",
@@ -72,9 +77,12 @@
   {
     "name": "FT",
     "p1": "Fionn Woodcock",
-    "p2": "Terence Neale"
+    "p2": "Terence Neale",
+    "seeded": true
   },
   {
-    "name": "BYE"
+    "name": "Up the Arsenal",
+    "p1": "Stephen Mitchell",
+    "p2": "Gemma Greenall"
   }
 ]
