@@ -258,7 +258,10 @@ function buildFixturesList(fixturesData) {
         var round = fixturesData[i],
             roundNum = i + 1;
 
-        var $li = $('<li>').append($('<a>').text('Week ' + round.week).attr('href', '#round' + roundNum));
+        var deadline = new Date(round.deadline);
+
+        var $li = $('<li>').append($('<a>').text('Week ' + round.week).attr('href', '#round' + roundNum)
+            .append($('<span class="deadline">').text('(Deadline: ' + deadline.toDateString() + ')')));
         $ul.append($li);
 
         var $fixtureContainer = $('<div class="panel">');

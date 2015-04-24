@@ -63,3 +63,9 @@ i.fa.fa-star{
     font-size: 9px;
     color: #69c8c7;
 }
+
+.deadline{
+    color: red;
+    margin-left: 5px;
+    font-size: 11px;
+}
