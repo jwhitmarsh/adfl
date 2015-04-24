@@ -52,7 +52,7 @@ function main() {
     }
     //console.log(JSON.stringify(fixturesJson, null, 2));
 
-    fs.writeFile(__dirname + '/../data/fixtures.json', JSON.stringify(fixturesJson, null, 2), function (err) {
+    fs.writeFile(__dirname + '/../data/fixturestest.json', JSON.stringify(fixturesJson, null, 2), function (err) {
         if (err) {
             console.error(err);
         } else {

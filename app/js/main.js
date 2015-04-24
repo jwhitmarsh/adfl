@@ -3,6 +3,8 @@ $(function () {
     getData();
 });
 
+var _teams;
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -25,6 +27,7 @@ function getData() {
     }
 
     $.getJSON(teamsJson, function (teams) {
+        _teams = teams;
         $.getJSON(fixturesJson, function (fixtures) {
             buildLeagueTable(teams, fixtures);
             buildFixturesList(fixtures);
@@ -34,7 +37,41 @@ function getData() {
 
 function buildLeagueTable(teams, fixtures) {
     var $leagueTable = $('#leagueTable'),
-        $body = $leagueTable.find('tbody');
+        $body = $leagueTable.find('tbody'),
+        $teamSelect = $('#teamSelect');
+
+    var alphaSortedTeams = teams.sort(function (x, y) {
+        var nameA = x.name.toLowerCase(), nameB = y.name.toLowerCase()
+        if (nameA < nameB)
+            return -1;
+        if (nameA > nameB)
+            return 1;
+        return 0;
+    });
+
+    for (var at = 0; at < alphaSortedTeams.length; at++) {
+        $teamSelect.append($('<option>').val(alphaSortedTeams[at].id).text(alphaSortedTeams[at].name));
+    }
+
+    $teamSelect.on('change', function () {
+        var id = $(this).val();
+        console.log(id);
+        var $fixtures = $('.fixture');
+        if (id === '-1') {
+            $fixtures.show();
+        } else {
+            $fixtures.hide();
+            $fixtures.each(function () {
+                var ids = $(this).attr('data-team-ids').split(',');
+                if (ids === undefined) {
+                    console.error($(this));
+                }
+                if (parseInt(ids[0]) == parseInt(id) || parseInt(ids[1]) == parseInt(id)) {
+                    $(this).show();
+                }
+            });
+        }
+    });
 
     for (var i = 0; i < teams.length; i++) {
         var team = teams[i];
@@ -49,6 +86,7 @@ function buildLeagueTable(teams, fixtures) {
             $tr.append($('<td>').html(teamName));
             $tr.append($('<td>').text(team.p1));
             $tr.append($('<td>').text(team.p2));
+
         }
 
 
@@ -220,9 +258,8 @@ function buildFixturesList(fixturesData) {
         var round = fixturesData[i],
             roundNum = i + 1;
 
-        $ul.append(
-            $('<li>').append($('<a>').text('Week ' + round.week).attr('href', '#round' + roundNum))
-        );
+        var $li = $('<li>').append($('<a>').text('Week ' + round.week).attr('href', '#round' + roundNum));
+        $ul.append($li);
 
         var $fixtureContainer = $('<div class="panel">');
         $fixtureContainer.attr('id', 'round' + roundNum);
@@ -241,11 +278,12 @@ function buildFixturesList(fixturesData) {
 
 function makeFixtures(round, $fixtureContainerBody) {
     for (var f = 0; f < round.matches.length; f++) {
-        var match = round.matches[f];
 
+        var match = round.matches[f];
         var $fixture = $('<div class="fixture">');
         var $home = $('<h6>').text(match.home.team);
         var $away = $('<h6>').text(match.away.team);
+
 
         var resultClass = 'lose';
         if (match.home.score !== null) {
@@ -273,6 +311,28 @@ function makeFixtures(round, $fixtureContainerBody) {
             $home.addClass('bye');
             $away.addClass('bye');
         }
+
+        var homeDetails = _teams.filter(function (t) {
+            return t.name == match.home.team;
+        });
+
+        var awayDetails = _teams.filter(function (t) {
+            return t.name == match.away.team;
+        });
+
+        $fixture.attr('data-team-ids', [homeDetails[0].id, awayDetails[0].id]);
+
+        $home.popover({
+            content: homeDetails[0].p1 + ' & ' + homeDetails[0].p2,
+            trigger: 'hover',
+            placement: 'top'
+        });
+
+        $away.popover({
+            content: awayDetails[0].p1 + ' & ' + awayDetails[0].p2,
+            trigger: 'hover',
+            placement: 'top'
+        });
 
         $fixture.append($home);
         $fixture.append($('<span>').text('v'));
